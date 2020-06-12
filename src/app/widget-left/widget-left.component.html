@@ -1,0 +1,68 @@
+<div class="w3ls-weather-agileinfo">
+  <div class="weather-left">
+    <div class="weather-left-text">
+      <h4> {{ WeatherData.name}} </h4>
+      <h5> {{ fullDate | date:"fullDate" }} </h5>
+    </div>
+    <ul class="report">
+      <li><a href="#"> {{ WeatherData.temp_celcius }}  °C</a></li>
+      <li><a href="#"><span> {{ WeatherData.temp_faren }} </span> °F</a></li>
+    </ul>
+  </div>
+  <div class="weather-right">
+    <ul>
+      <li>
+        <i style="color: white" class="fas fa-3x fa-thermometer-quarter"></i>
+        <h3> {{ WeatherData.temp_celcius }} °C</h3>
+        <div class="clear"></div>
+      </li>
+      <li>
+<!--        <i class="fas fa-3x fa-thermometer-quarter"></i>-->
+        <div class="weather-text">
+          <h4> MIN </h4>
+          <h5>{{ WeatherData.temp_min }} °C</h5>
+        </div>
+        <div class="clear"></div>
+      </li>
+      <li>
+<!--        <i class="fas fa-3x fa-thermometer-full"></i>-->
+        <div class="weather-text">
+          <h4>MAX</h4>
+          <h5>{{ WeatherData.temp_max }} °C</h5>
+        </div>
+        <div class="clear"></div>
+      </li>
+      <li>
+<!--        <i class="fas fa-3x fa-thermometer-quarter"></i>-->
+        <div class="weather-text">
+          <h4>FEELS LIKE</h4>
+          <h5>{{ WeatherData.temp_feels_like }} °C</h5>
+        </div>
+        <div class="clear"></div>
+      </li>
+    </ul>
+    <script>
+      var icons = new Skycons({"color": "#fff"}),
+        list  = [
+          "partly-cloudy-day"
+        ],
+        i;
+
+      for(i = list.length; i--; )
+        icons.set(list[i], list[i]);
+      icons.play();
+    </script>
+    <script>
+      var icons = new Skycons({"color": "#fff"}),
+        list  = [
+          "clear-night","partly-cloudy-night", "cloudy", "clear-day", "sleet", "snow", "wind","fog"
+        ],
+        i;
+
+      for(i = list.length; i--; )
+        icons.set(list[i], list[i]);
+      icons.play();
+    </script>
+  </div>
+  <div class="clear"></div>
+</div>
