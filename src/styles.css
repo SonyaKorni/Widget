@@ -63,7 +63,7 @@ h1 {
   width: 75%;
 }
 .weather-left-text {
-  padding:4em 2em 5em;
+  padding:3em 2em 5em;
   text-align: center;
 }
 .weather-right{
@@ -317,3 +317,26 @@ canvas#clear-day,canvas#snow,canvas#partly-cloudy-night {
 }
 /*-- //responsive-design --*/
 
+app-search{
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+app-search input{
+  background-color: #cacaca;
+  border: 1px solid #c3c3c3;
+}
+.search-message{
+  display: none;
+}
+.search-message-active{
+  display: block;
+  color: red;
+  position: absolute;
+  top: 40px;
+  left: 86px;
+}
+.weather-left{
+  position: relative;
+}

@@ -7,18 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetLeftComponent implements OnInit {
   WeatherData: any;
+  city: string = 'Kiev';
+  errorWeather: boolean = false;
   constructor() { }
+
 
   ngOnInit() {
     this.getWeatherData();
   }
+  receaveMessage($event) {
+    this.city = $event;
+    this.getWeatherData()
+  }
+
   getWeatherData(){
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=Kiev&appid=c3faa01389d57c1ba50ebe54e09ba719')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=c3faa01389d57c1ba50ebe54e09ba719')
       .then(response=>response.json())
       .then(data=>{this.setWeatherData(data);})
   }
   setWeatherData(data){
-    this.WeatherData = data;
+    if (data.cod == '404' ){
+      this.errorWeather = true;
+    } else{
+      this.errorWeather = false;
+      this.WeatherData = data;
+    }
+
 
     this.WeatherData.data = new Date();
     this.WeatherData.temp_celcius = (this.WeatherData.main.temp - 273.15).toFixed(0);

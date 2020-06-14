@@ -1,5 +1,9 @@
 <div class="w3ls-weather-agileinfo">
   <div class="weather-left">
+    <p class="search-message"
+      [ngClass]="{'search-message-active': errorWeather}"> error </p>
+    <app-search (messageEvent)="receaveMessage($event)"></app-search>
+
     <div class="weather-left-text">
       <h4> {{ WeatherData.name}} </h4>
       <h5> {{ fullDate | date:"fullDate" }} </h5>
